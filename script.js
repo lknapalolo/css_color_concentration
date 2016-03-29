@@ -43,9 +43,28 @@ var allDivs = document.querySelectorAll("div.box")
         allDivs[i].style.order = j;
 }
 
-// Didn't work
-// // newDivs = shuffle(allDivs)
-// // document.querySelector("div.container").innerHTML = newDivs
+document.querySelector("button").addEventListener("click", function(){
+  document.body.removeChild(document.querySelector("div.welcome"));
+  // document.querySelector("div.welcome").style.z-index = "-1";
+  for(var i=0; i<allDivs.length; i++){
+    allDivs = document.querySelectorAll("div.box")
+    allDivs[i].classList.add('cover')
+  }})
 
-//click one tile, flip over (display:inline-flex)
-document.querySelector("div.box.box1").addEventListener("click", function(){document.querySelector("div.box.box1").style.display= "inline-flex"})
+function removeOpacity(){
+  this.classList.remove('cover');
+};
+function addOpacity(){
+  this.classList.add('cover');
+}
+
+for(var i=0; i<allDivs.length; i++){
+  allDivs[i].addEventListener( "click", removeOpacity)}
+
+function memorygame(){
+var clickCounter = 0
+}
+  //click one tile, flip over (remove class 'cover'), click second tile, flip over
+  //click counter
+  //if they are equal, stay flipped
+  //else return class to display:none
