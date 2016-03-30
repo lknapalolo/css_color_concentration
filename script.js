@@ -30,7 +30,6 @@ for (var i = 0; i < oneDivs.length; i++) {
 for (var i = 0; i < twoDivs.length; i++) {
   twoDivs[i].style.background = newColors[i];
   twoDivs[i].innerHTML = newColors[i]
-
 };
 
 //randomize order of divs
@@ -41,42 +40,56 @@ for(i = allDivs.length-1; i > 0; i--){
   allDivs[i].style.order = j;
 };
 
-document.querySelector("button").addEventListener("click", function(){
+document.querySelector("button").addEventListener("click", init)
+function init (){
   document.body.removeChild(document.querySelector("div.welcome"));
-  for(var i=0; i<allDivs.length; i++){
+  setTimeout (function(){for(var i=0; i<allDivs.length; i++){
     allDivs = document.querySelectorAll("div.box")
     allDivs[i].classList.add('cover')
-  }});
+  }}, 200)
+};
 
-  var lastClicked = [];
-  var clickCounter = 0;
+var clickCounter = 0;
+var guess1;
+var guess2;
+var lastClicked = [];
 
-  // function memory(){
-    for(var i=0; i<allDivs.length; i++){
-      allDivs[i].addEventListener( "click", function(){
-        this.classList.remove('cover');
-        lastClicked.unshift(this);
-        clickCounter++;
-      }
-    )
+for(var i=0; i<allDivs.length; i++){
+  allDivs[i].addEventListener( "click", match)}
+
+
+  function match(){
+    this.classList.add('clicked')
+    this.classList.remove('cover');
+    lastClicked.unshift(this);
+    clickCounter++;
+    if (clickCounter === 1 && this.classList.includes !== "clicked"){
+      guess1 = this.innerHTML
+      console.log(guess1);
+    }
+    else if (clickCounter === 2  && this.classList.includes !== "clicked"){
+      guess2 = this.innerHTML
+      console.log(guess2);
+      //reset counter, hide things that didn't match
+    }
+    if(guess1 && guess2 && guess1 === guess2 && clickCounter === 2){
+      console.log("it's a match");
+      clickCounter = 0;
+      guess1 = "";
+      guess2 = "";
+
+    }
+    else if (guess1 && guess2 && guess1 !== guess2 && clickCounter === 2){
+      setTimeout(function(){
+        lastClicked[0].classList.add('cover');
+        lastClicked[1].classList.add('cover');
+        lastClicked[0].classList.remove('clicked');
+        lastClicked[1].classList.remove('clicked');
+
+      }, 500)
+      clickCounter = 0;
+      guess1 = "";
+      guess2 = "";
+    }
   };
-// };
-//
-//   memory();
-
-if ((lastClicked.length % 2 === 0) && (clickCounter !== 0)){
-   if (allDivs[0].classList.length === 3 && allDivs[8].classList.length === 3){console.log("it's a match!");}
-   if (allDivs[1].classList.length === 3 && allDivs[9].classList.length === 3){console.log("it's a match!");}
-   if (allDivs[2].classList.length === 3 && allDivs[10].classList.length === 3){console.log("it's a match!");}
-   if (allDivs[3].classList.length === 3 && allDivs[11].classList.length === 3){console.log("it's a match!");}
-   if (allDivs[4].classList.length === 3 && allDivs[12].classList.length === 3){console.log("it's a match!");}
-   if (allDivs[5].classList.length === 3 && allDivs[13].classList.length === 3){console.log("it's a match!");}
-   if (allDivs[6].classList.length === 3 && allDivs[14].classList.length === 3){console.log("it's a match!");}
-   if (allDivs[7].classList.length === 3 && allDivs[15].classList.length === 3){console.log("it's a match!");}
-   else{
-     lastClicked[0].classList.add('cover');
-     lastClicked[1].classList.add('cover');
-     console.log("working");
-   };
-
- };
+// .classList.includes
