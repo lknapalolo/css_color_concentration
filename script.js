@@ -8,13 +8,13 @@ function shuffle(array){
   var j;
   var temp;
   for (i=array.length-1; i > 0; i--){
-      j= Math.floor(Math.random()*(i+1));
-      temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
+    j= Math.floor(Math.random()*(i+1));
+    temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
   return array;
-}
+};
 
 //call function to shuffle array of css colors
 var newColors = shuffle(colors)
@@ -23,49 +23,60 @@ var newColors = shuffle(colors)
 var oneDivs = document.querySelectorAll("div.box.one")
 var twoDivs = document.querySelectorAll("div.box.two")
 
-    for (var i = 0; i < oneDivs.length; i++) {
-        oneDivs[i].style.background = newColors[i]
-        oneDivs[i].innerHTML = newColors[i]
+for (var i = 0; i < oneDivs.length; i++) {
+  oneDivs[i].style.background = newColors[i]
+  oneDivs[i].innerHTML = newColors[i]
 };
-    for (var i = 0; i < twoDivs.length; i++) {
-        twoDivs[i].style.background = newColors[i];
-        twoDivs[i].innerHTML = newColors[i]
+for (var i = 0; i < twoDivs.length; i++) {
+  twoDivs[i].style.background = newColors[i];
+  twoDivs[i].innerHTML = newColors[i]
 
 };
 
 //randomize order of divs
 
 var allDivs = document.querySelectorAll("div.box")
-    for(i = allDivs.length-1; i > 0; i--){
-        j= Math.floor(Math.random()*(i+1));
-        allDivs[i].style.order = j;
-}
+for(i = allDivs.length-1; i > 0; i--){
+  j= Math.floor(Math.random()*(i+1));
+  allDivs[i].style.order = j;
+};
 
 document.querySelector("button").addEventListener("click", function(){
   document.body.removeChild(document.querySelector("div.welcome"));
-  // document.querySelector("div.welcome").style.z-index = "-1";
   for(var i=0; i<allDivs.length; i++){
     allDivs = document.querySelectorAll("div.box")
     allDivs[i].classList.add('cover')
   }});
 
-function memory(){
+  var lastClicked = [];
   var clickCounter = 0;
-for(var i=0; i<allDivs.length; i++){
-    allDivs[i].addEventListener( "click", function(){
-      this.classList.remove('cover');
-      var clickDivs = document.querySelectorAll("div.box")
-      clickCounter++;
-      console.log(clickCounter);
-      if (clickCounter % 2 == 0){
-        console.log("hello")
+
+  // function memory(){
+    for(var i=0; i<allDivs.length; i++){
+      allDivs[i].addEventListener( "click", function(){
+        this.classList.remove('cover');
+        lastClicked.unshift(this);
+        clickCounter++;
       }
-  })};
-};
-memory();
+    )
+  };
+// };
+//
+//   memory();
 
+if ((lastClicked.length % 2 === 0) && (clickCounter !== 0)){
+   if (allDivs[0].classList.length === 3 && allDivs[8].classList.length === 3){console.log("it's a match!");}
+   if (allDivs[1].classList.length === 3 && allDivs[9].classList.length === 3){console.log("it's a match!");}
+   if (allDivs[2].classList.length === 3 && allDivs[10].classList.length === 3){console.log("it's a match!");}
+   if (allDivs[3].classList.length === 3 && allDivs[11].classList.length === 3){console.log("it's a match!");}
+   if (allDivs[4].classList.length === 3 && allDivs[12].classList.length === 3){console.log("it's a match!");}
+   if (allDivs[5].classList.length === 3 && allDivs[13].classList.length === 3){console.log("it's a match!");}
+   if (allDivs[6].classList.length === 3 && allDivs[14].classList.length === 3){console.log("it's a match!");}
+   if (allDivs[7].classList.length === 3 && allDivs[15].classList.length === 3){console.log("it's a match!");}
+   else{
+     lastClicked[0].classList.add('cover');
+     lastClicked[1].classList.add('cover');
+     console.log("working");
+   };
 
-  //click one tile, flip over (remove class 'cover'), click second tile, flip over
-  //click counter
-  //if they are equal, stay flipped
-  //else return class to display:none
+ };
