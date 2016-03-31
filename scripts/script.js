@@ -1,5 +1,6 @@
 //Inititate game from "play" button
 document.querySelector("button").addEventListener("click", init)
+
 function init (){
   document.body.removeChild(document.querySelector("div.welcome"));
   setTimeout (function(){for(var i=0; i<allDivs.length; i++){
