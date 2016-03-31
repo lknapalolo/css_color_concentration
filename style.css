@@ -101,51 +101,52 @@ opacity: 0;}
   box-sizing: border-box;
   z-index:1;
 }
+
 .color1{
   background: rgb(255,255,255);
 }
 .color2{
-  background: rgb(245,245,245);
+  background: rgb(248,248,248);
 }
 .color3{
-  background: rgb(235,235,235);
+  background: rgb(240,240,240);
 }
 .color4{
-  background: rgb(225,225,225);
+  background: rgb(232,232,232);
 }
 .color5{
-  background: rgb(210,210,210);
+  background: rgb(224,224,224);
 }
 .color6{
-  background: rgb(200,200,200);
+  background: rgb(216,216,216);
 }
 .color7{
-  background: rgb(170,170,170);
+  background: rgb(208,208,208);
 }
 .color8{
-  background: rgb(155,155,155);
+  background: rgb(200,200,200);
 }
 .color9{
-  background: rgb(140,140,140);
+  background: rgb(192,192,192);
 }
 .color10{
-  background: rgb(125,125,125);
+  background: rgb(184,184,184);
 }
 .color11{
-  background: rgb(110,110,110);
+  background: rgb(176,176,176);
 }
 .color12{
-  background: rgb(95,95,95);
+  background: rgb(160,160,160);
 }
 .color13{
-  background: rgb(80,80,80);
+  background: rgb(144,144,144);
 }
 .color14{
-  background: rgb(50,50,50);
+  background: rgb(120,120,120);
 }
 .color15{
-  background: rgb(35,35,35);
+  background: rgb(104,104,104);
 }
 .color16{
-  background: rgb(10,10,10);
+  background: rgb(80,80,80);
 }

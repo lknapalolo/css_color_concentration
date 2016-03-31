@@ -39,6 +39,7 @@ for(var i=0; i<allDivs.length; i++){
       clickCounter = 0;
       guess1 = "";
       guess2 = "";
+      shufflePieces(bgDivs);
 
     }
     else if (guess1 && guess2 && guess1 !== guess2 && clickCounter === 2){
@@ -48,7 +49,7 @@ for(var i=0; i<allDivs.length; i++){
         lastClicked[0].classList.remove('clicked');
         lastClicked[1].classList.remove('clicked');
 
-      }, 500)
+      }, 400)
       clickCounter = 0;
       guess1 = "";
       guess2 = "";
