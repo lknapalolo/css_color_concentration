@@ -34,8 +34,16 @@ for (var i = 0; i < twoDivs.length; i++) {
 };
 
 //randomize order of divs
+//tile divs
 var allDivs = document.querySelectorAll("div.box")
 for(i = allDivs.length-1; i > 0; i--){
   j= Math.floor(Math.random()*(i+1));
   allDivs[i].style.order = j;
+};
+
+//background divs
+var bgDivs = document.querySelectorAll("div.boxbg")
+for(i = bgDivs.length-1; i > 0; i--){
+  j= Math.floor(Math.random()*(i+1));
+  bgDivs[i].style.order = j;
 };
