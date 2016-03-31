@@ -25,11 +25,11 @@ var twoDivs = document.querySelectorAll("div.box.two")
 
 for (var i = 0; i < oneDivs.length; i++) {
   oneDivs[i].style.background = newColors[i]
-  oneDivs[i].innerHTML = newColors[i]
+  oneDivs[i].textContent = newColors[i]
 };
 for (var i = 0; i < twoDivs.length; i++) {
   twoDivs[i].style.background = newColors[i];
-  twoDivs[i].innerHTML = newColors[i]
+  twoDivs[i].textContent = newColors[i]
 };
 
 //randomize order of divs
@@ -63,6 +63,7 @@ for(var i=0; i<allDivs.length; i++){
     this.classList.remove('cover');
     lastClicked.unshift(this);
     clickCounter++;
+
     if (clickCounter === 1 && this.classList.includes !== "clicked"){
       guess1 = this.innerHTML
       console.log(guess1);
@@ -92,4 +93,3 @@ for(var i=0; i<allDivs.length; i++){
       guess2 = "";
     }
   };
-// .classList.includes

@@ -43,6 +43,7 @@ button{
   margin:0;
   box-sizing: border-box;
   z-index:2;
+  background-color: white
 }
 .box{
   font-size:1.5em;
@@ -57,8 +58,25 @@ button{
   text-align: center;
   font-family: helvetica, arial;
   text-overflow: clip;
+  -webkit-text-overflow: clip;
   box-sizing: border-box;
   z-index:1;
 }
 
-.cover {opacity:0;}
+.cover {
+opacity: 0;}
+/*
+.box:hover div.display{
+  opacity: 1;
+}
+
+div.display{
+  display:block;
+  position:absolute;
+  z-index: -1;
+  height:100vh;
+  width: 100vw;
+  background: rgb(0,0,0);
+  padding:0;
+  margin:0;
+}*/
